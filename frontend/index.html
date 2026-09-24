@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preenchimento de Notificação</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="cartao">
+    <h1>PREENCHIMENTO DE NOTIFICAÇÃO</h1>
+    <p class="subtitulo">Selecione a(s) empresa(s) e gere o documento preenchido.</p>
+
+    <nav class="abas">
+      <button id="abaUnico" class="aba ativa">Preenchimento único</button>
+      <button id="abaLote" class="aba">Preenchimento em lote</button>
+    </nav>
+
+    <!-- ABA 1: ÚNICO -->
+    <section id="painelUnico">
+      <label for="buscaUnico">Buscar empresa (CNPJ ou nome):</label>
+      <input type="text" id="buscaUnico" placeholder="Digite o CNPJ ou o nome da empresa" />
+      <div id="listaUnico" class="lista-empresas"></div>
+      <p id="msgUnico" class="mensagem"></p>
+
+      <div id="camposUnico" class="oculto">
+        <div class="selo">EMPRESA SELECIONADA</div>
+        <div class="linha-info"><span class="rotulo">Campo "Empresa" (Nome Fantasia):</span>
+          <span id="campoEmpresaUnico" class="valor-campo"></span> <span class="ok-campo">✓ preenchido automaticamente</span></div>
+        <div class="linha-info"><span class="rotulo">Campo "CNPJ":</span>
+          <span id="campoCnpjUnico" class="valor-campo"></span> <span class="ok-campo">✓ preenchido automaticamente</span></div>
+        <button id="btnGerarUnico" class="btn-primario">GERAR PDF</button>
+      </div>
+
+      <div id="resultadoUnico" class="oculto">
+        <div class="selo sucesso">PDF GERADO COM SUCESSO</div>
+        <p class="info-arquivo" id="infoArquivoUnico"></p>
+        <div class="acoes">
+          <button id="verUnico" class="btn-secundario">VISUALIZAR PDF</button>
+          <button id="baixarUnico" class="btn-secundario">BAIXAR PDF</button>
+        </div>
+        <button id="btnNovaUnico" class="btn-voltar">↺ Fazer nova consulta</button>
+      </div>
+    </section>
+
+    <!-- ABA 2: LOTE -->
+    <section id="painelLote" class="oculto">
+      <label for="buscaLote">Buscar empresas (CNPJ ou nome):</label>
+      <input type="text" id="buscaLote" placeholder="Digite o CNPJ ou o nome da empresa" />
+
+      <div class="barra-selecao">
+        <span id="contadorLote">0 empresa(s) selecionada(s)</span>
+        <button id="btnLimparLote" class="btn-limpar oculto">Limpar seleção</button>
+      </div>
+      <div id="selecionadasLote" class="chips"></div>
+
+      <div id="listaLote" class="lista-empresas"></div>
+      <p id="msgLote" class="mensagem"></p>
+
+      <div id="camposLote" class="oculto">
+        <div class="selo">CAMPOS DO DOCUMENTO</div>
+        <div class="linha-info"><span class="rotulo">Campo "Empresa":</span>
+          <span class="valor-campo">Nome Fantasia de cada empresa</span> <span class="ok-campo">✓ preenchido automaticamente</span></div>
+        <div class="linha-info"><span class="rotulo">Campo "CNPJ":</span>
+          <span class="valor-campo">CNPJ de cada empresa</span> <span class="ok-campo">✓ preenchido automaticamente</span></div>
+        <button id="btnGerarLote" class="btn-primario">GERAR DOCUMENTOS</button>
+      </div>
+
+      <div id="resultadoLote" class="oculto">
+        <div class="selo sucesso" id="seloResultadoLote">DOCUMENTOS GERADOS COM SUCESSO</div>
+        <div class="acoes"><button id="baixarZipLote" class="btn-primario">BAIXAR TODOS (ZIP)</button></div>
+        <p class="info-arquivo">Arquivos individuais:</p>
+        <div id="listaResultadosLote" class="lista-resultados"></div>
+        <button id="btnNovaLote" class="btn-voltar">↺ Fazer nova seleção</button>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+node_modules/
+database/*.db
+database/*.db-*
+output/*.pdf
+!output/.gitkeep
+uploads/*.xlsx
+!uploads/empresas_exemplo.xlsx
+npm-debug.log*
+.DS_Store
